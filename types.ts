@@ -45,6 +45,7 @@ export type ViewType =
   | 'schedule' 
   | 'performance'
   | 'journal' 
+  | 'courses'
   | 'library' 
   | 'announcements' 
   | 'shop'

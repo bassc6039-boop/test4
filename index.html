@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Top Academy Journal Simulator</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -89,6 +88,8 @@
         color: var(--text-main);
         transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s ease;
         overflow-x: hidden;
+        margin: 0;
+        padding: 0;
       }
 
       /* Fluffier Glass Utility */
@@ -186,6 +187,10 @@
         100% { transform: translate(1px, -2px) rotate(-1deg); }
       }
 
+      .text-stroke {
+          -webkit-text-stroke: 1px black;
+      }
+
       .arabic-font {
         font-family: 'Comic Sans MS', 'Impact', sans-serif;
       }
@@ -207,5 +212,7 @@
 </head>
   <body>
     <div id="root"></div>
+    <!-- Entry Point Script: Critical for Deployment -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

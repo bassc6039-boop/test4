@@ -53,7 +53,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, currentView, onNavigate }) =>
               { id: 'schedule', icon: Calendar, label: 'Расписание' },
               { id: 'journal', icon: BookOpen, label: 'Дневник', count: 3 },
               { id: 'performance', icon: GraduationCap, label: 'Оценки' },
-              { id: 'courses', icon: GraduationCap, label: 'Курсы' } as any,
+              { id: 'courses', icon: GraduationCap, label: 'Курсы' },
               { id: 'library', icon: Library, label: 'Библиотека', count: 1 },
           ]
       },

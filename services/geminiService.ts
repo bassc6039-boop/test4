@@ -1,12 +1,30 @@
 import { GoogleGenAI } from "@google/genai";
 
-const apiKey = process.env.API_KEY || '';
-// Note: In a real environment, we check if key exists. Here we initialize safely.
+// SAFE API KEY ACCESS:
+// Checks if 'process' exists to avoid "ReferenceError: process is not defined" in browsers/GitHub Pages
+const getApiKey = () => {
+  try {
+    if (typeof process !== 'undefined' && process.env) {
+      return process.env.API_KEY || '';
+    }
+    // Fallback for Vite/other bundlers if needed, or return empty
+    // @ts-ignore
+    if (typeof import.meta !== 'undefined' && import.meta.env) {
+      // @ts-ignore
+      return import.meta.env.VITE_API_KEY || '';
+    }
+  } catch (e) {
+    return '';
+  }
+  return '';
+};
+
+const apiKey = getApiKey();
 const ai = apiKey ? new GoogleGenAI({ apiKey }) : null;
 
 export const getHomeworkHelp = async (subject: string, topic: string, description: string): Promise<string> => {
   if (!ai) {
-    return "API Key is missing. Please configure the environment variable to use AI assistance.";
+    return "API Key is missing. AI features are disabled in this demo.";
   }
 
   try {
